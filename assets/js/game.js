@@ -52,7 +52,7 @@ var fight = function() {
         //if no (false), ask question again by running fight() again
         else{
             fight();            
-        }        
+        }               
     } else {
         window.alert("You need to choose a valid option. Try again!");
     }
