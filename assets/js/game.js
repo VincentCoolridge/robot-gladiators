@@ -122,7 +122,7 @@ var fight = function(enemy) {
     // set health for picked enemy
     pickedEnemyObj.health = randomNumber(40,60);
 
-    console.log(pickedEnemyobj);
+    console.log(pickedEnemyObj);
 
     //pass the pickedEnemyobj variable's value into the fight function, where it will assume the value of the enemy parameter
     fight(pickedEnemyObj);
