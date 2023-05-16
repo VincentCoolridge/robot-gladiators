@@ -19,7 +19,15 @@ var fightOrSkip = function() {
   var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
 
   //conditional recursive function call
+  promptFight = promptFight.toLowerCase();
+
   if (promptFight === "" || promptFight === "null") {
+    window.alert("You need to provide a valid answer! Please try again.");
+    return fightOrSkip();
+  }
+
+  if (promptFight === "fight") {        
+  } else {
     window.alert("You need to provide a valid answer! Please try again.");
     return fightOrSkip();
   }
