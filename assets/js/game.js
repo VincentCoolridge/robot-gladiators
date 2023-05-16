@@ -21,30 +21,24 @@ var fightOrSkip = function() {
   //conditional recursive function call
   promptFight = promptFight.toLowerCase();
 
-  if (promptFight === "" || promptFight === "null") {
+  if (promptFight === "" || promptFight === null) {
     window.alert("You need to provide a valid answer! Please try again.");
     return fightOrSkip();
-  }
-
-  if (promptFight === "fight") {        
-  } else {
-    window.alert("You need to provide a valid answer! Please try again.");
-    return fightOrSkip();
-  }
+  }   
 
   //if player picks "skip" confirm and then stop the loop
   promptFight = promptFight.toLowerCase();
 
   if (promptFight === "skip") {
     // confirm player wants to skip
-    var confirmSkip = window.alert("Are you sure you'd like to quit?");
+    var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
     //if yess (true), leave fight
     if (confirmSkip) {
       window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
       
       //subtract money from playerMoney for skipping
-      playerInfo.playerMoney = Math.max(0, playerInfo.money - 10);
+      playerInfo.money = Math.max(0, playerInfo.money - 10);
 
       return true;      
     }
