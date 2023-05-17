@@ -21,29 +21,38 @@ var fightOrSkip = function() {
   //conditional recursive function call
   promptFight = promptFight.toLowerCase();
 
-  if (promptFight === "" || promptFight === null) {
-    window.alert("You need to provide a valid answer! Please try again.");
-    return fightOrSkip();
-  }   
-
-  //if player picks "skip" confirm and then stop the loop
-  promptFight = promptFight.toLowerCase();
-
-  if (promptFight === "skip") {
-    // confirm player wants to skip
-    var confirmSkip = window.confirm("Are you sure you'd like to quit?");
-
-    //if yess (true), leave fight
-    if (confirmSkip) {
-      window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
-      
-      //subtract money from playerMoney for skipping
-      playerInfo.money = Math.max(0, playerInfo.money - 10);
-
-      return true;      
+  switch (promptFight) {
+    case "skip":    
+    if (promptFight === "skip") {
+      // confirm player wants to skip
+      var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+  
+      // if yes (true), leave fight
+      if (confirmSkip) {
+        window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
+        // subtract money from playerMoney for skipping, but don't let them go into the negative
+        playerInfo.money = Math.max(0, playerInfo.money - 10);
+        // stop while() loop using break; and enter next fight
+  
+        // return true if player wants to leave
+        return true;
+      }
     }
+    return false;
+
+    case "fight":    
+      if (promptFight === "fight");
+      
+      break;    
+
+    default:
+      window.alert("You did not pick a valid option. Try again.");
+      return fightOrSkip();
+
+      //call shop() again to force player to pick a valic option
+      fight();
+      break;
   }
-  return false;
 };
 
 var fight = function(enemy) {
